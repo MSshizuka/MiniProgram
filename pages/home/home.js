@@ -1,66 +1,24 @@
 // pages/home/home.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    name: '阿尔托莉雅',
+    age: 18,
+    message: [
+      { name: '伊莉雅', job: 'Caster'},
+      { name: '阿周那', job: 'Archer'},
+      { name: '奥斯曼迪斯', job: 'Rider'},
+      { name: '齐格鲁德', job: 'Saber'},
+    ],
+    count: 0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  addCount() {
+    this.setData({
+      count: this.data.count + 1
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  subCount () {
+    this.setData({
+      count: this.data.count - 1
+    })
   }
 })
