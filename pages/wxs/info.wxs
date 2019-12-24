@@ -1,0 +1,14 @@
+var message = "hello world"
+var name = '阿尔托莉雅'
+var job = 'saber'
+
+var sum = function (num1, num2) {
+  return num1 + num2
+}
+
+module.exports = {
+  message: message,
+  name: name,
+  job: job,
+  sum: sum
+}

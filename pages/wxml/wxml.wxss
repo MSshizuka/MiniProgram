@@ -1,0 +1,14 @@
+/* pages/wxml/wxml.wxss */
+
+.btn {
+  width: 100px;
+  height: 50px;
+}
+
+.active {
+  color: red;
+}
+
+.fz {
+  font-size: 40px;
+}

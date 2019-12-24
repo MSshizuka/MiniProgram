@@ -1,0 +1,19 @@
+<!--pages/wxml/wxml.wxml-->
+<view>当前时间：{{nowDate}}</view>
+<button size="middle" bindtap="handleBtnClick">切换颜色</button>
+<view class="fz {{isActive ? 'active' : ''}}">测试文字</view>
+
+<button size="mini" bindtap="imgClick">按钮</button>
+<image mode="aspectFit" wx:for="{{imgPath}}" src="{{item}}" wx:key="index"></image>
+
+
+<!-- WXS的使用 -->
+<view>wxs的基本使用:</view>
+<wxs src="../wxs/info.wxs" module="info"/>
+<view>{{info.message}}</view>
+<view>{{info.name}}</view>
+<view>{{info.sum(20, 30)}}</view>
+
+<view>wxs的应用:</view>
+<wxs src="../wxs/format.wxs" module="format"/>
+<view>{{format.priceFormat(price, 3)}}</view>
