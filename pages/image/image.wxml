@@ -1,0 +1,13 @@
+<!--pages/image/image.wxml-->
+<!-- 相对路径 -->
+<image src="../assets/img/01.jpg"></image>
+<!-- 绝对路径 -->
+<image src="/pages/assets/img/01.jpg"></image>
+<!-- 远程地址 -->
+<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577181838238&di=80f70dfc4dec6106140e980475bfee12&imgtype=0&src=http%3A%2F%2Fws1.sinaimg.cn%2Flarge%2F005ODKsIjw1eq3fjerygyj30sw0my7dh.jpg"></image>
+
+
+<!-- 获取用户相册里的图片或拍照 -->
+<button bindtap="handleChooseAlbum">上传照片</button>
+
+<image mode="aspectFit" src="{{imagePath}}"></image>  

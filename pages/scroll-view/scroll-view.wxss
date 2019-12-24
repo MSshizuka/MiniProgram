@@ -1,0 +1,28 @@
+/* pages/scroll-view/scroll-view.wxss */
+.scroll-x {
+  background: #ff5777;
+  white-space: nowrap;
+}
+
+.item-x {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: lightgreen;
+  margin: 10px;
+}
+
+.text {
+  margin-top: 20px;
+}
+
+.scroll-y {
+  height: 200px;
+  background: #ff5777;
+}
+
+.item-y {
+  height: 100px;
+  background: lightgreen;
+  margin: 10px;
+}

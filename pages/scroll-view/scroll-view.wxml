@@ -1,0 +1,16 @@
+水平滚动:
+<scroll-view class="scroll-x" scroll-x>
+  <view wx:for="{{10}}" class="item-x">{{item}}</view>
+</scroll-view>
+
+<view class="text">垂直滚动:</view>
+<scroll-view class="scroll-y" scroll-y>
+  <view wx:for="{{10}}" class="item-y">{{item}}</view>
+</scroll-view>
+
+<view class="text">其他补充:</view>
+<scroll-view class="scroll-y" 
+             scroll-y
+             bindscroll="handleScroll">
+  <view wx:for="{{10}}" class="item-y">{{item}}</view>
+</scroll-view>
