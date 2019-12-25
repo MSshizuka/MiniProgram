@@ -1,4 +1,6 @@
 // pages/home/home.js
+import request from '../../server/network.js'
+
 Page({
 
   /**
@@ -12,7 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    request({
+      url: 'http://123.207.32.32:8000/api/w1/home/data',
+      data: {
+        type: 'sell',
+        page: '1'
+      }
+    }).then(res => {
+      console.log(res)
+    })
   },
 
   /**
