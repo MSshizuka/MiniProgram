@@ -1,2 +1,12 @@
 <!--pages/home/home.wxml-->
+<!-- 1.展示轮播图 -->
+<w-swiper list="{{banners}}"/>
+<!-- 2.展示推荐图 -->
+<w-recommend recommends="{{recommends}}"/>
+<!-- 3.展示本周流行 -->
+<w-popular/>
+<!-- 4.展示tab-control -->
+<w-tab-control tab_titles="{{tab_titles}}"
+               bind:tab_click="handleTabClick"/>
+
 
