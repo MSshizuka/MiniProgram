@@ -1,0 +1,6 @@
+<!--components/my-slot/my-slot.wxml-->
+<view>我是插槽的开始</view>
+<slot name="up"/>
+<slot name="middle"/>
+<slot name="bottom"/>
+<view>我是插槽的结尾</view>

@@ -1,0 +1,3 @@
+<!--components/my-props/my-props.wxml-->
+<view class="title titlecolor">{{title}}</view>
+<view class="content">那我就是内容呗</view>

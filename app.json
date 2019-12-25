@@ -2,5 +2,11 @@
   "pages": [
     "pages/home/home",
     "pages/about/about"
-  ]
+  ],
+  "usingComponents": {
+    "my-props": "/components/my-props/my-props",
+    "my-event": "/components/my-event/my-event",
+    "w-tab-control": "/components/w-tab-control/w-tab-control"
+  },
+  "sitemapLocation": "sitemap18.json"
 }

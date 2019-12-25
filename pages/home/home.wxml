@@ -1,3 +1,24 @@
 <!--pages/home/home.wxml-->
 <text class="title">Hello World</text>
 <button size="mini">按钮</button>
+
+<my-props title="阿尔托莉雅" titlecolor="red"/>
+<my-props title="不列颠的王" titlecolor="blue"/>
+<my-props title="蓝呆，第一Saber" titlecolor="green"/>
+
+<view>当前计数：{{count}}</view>
+<my-event bind:increment="increment"/>
+<view>{{message.name}}</view>
+<view>{{message.age}}</view>
+
+<w-tab-control titles="{{['流行','新款','精选']}}"
+               bind:itemclick="itemclick"/>
+
+<button size="mini" class="btn" bind:tap="incrementCpn" >修改组件内的数据</button>
+<my-sel id="my-sel"/>
+
+<my-slot>
+  <view slot="middle">我是中间的内容</view>
+  <view slot="bottom">我是下面的内容</view>
+  <view slot="up">我是上面的内容</view>
+</my-slot>
