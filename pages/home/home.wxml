@@ -8,5 +8,8 @@
 <!-- 4.展示tab-control -->
 <w-tab-control tab_titles="{{tab_titles}}"
                bind:tab_click="handleTabClick"/>
+<!-- 5.展示商品数据 -->
+<w-goods goods="{{goods[currentType].list}}"/>
 
 
+ 

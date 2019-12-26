@@ -10,10 +10,12 @@ Page({
     recommends: [],
     tab_titles: ['流行', '新款', '精选'],
     goods: {
-      'pop': { page: 0, list: []},
-      'new': { page: 0, list: []},
-      'sell': {page: 0, list: []}
-    }
+      'pop': { page: 1, list: []},
+      'new': { page: 1, list: []},
+      'sell': {page: 1, list: []}
+    },
+    currentType: 'pop',
+    goodsTypes: ['pop','new','sell']
   },
 
   /**
@@ -48,79 +50,34 @@ Page({
 
   _getGoodsData (type) {
     //1.获取页码
-    const page = this.data.goods[type].page + 1;
+    const page = this.data.goods[type].page;
     //2.发送网络请求
     getGoodsData(type, page).then(res => {
-      console.log(res)
+      // console.log(res)
       //2.1.取出数据
       const list = res.data.data.list;
-      //2.2.将数据设置到对应的type中
-      const oldList = this.data.goods[type].list;
-      oldList.push(...list)
-      //2.3.将数据设置到data中的goods中
-      console.log(`goods.${type}.list`)
-      const typeKey = `goods.${type}.list`;
-      const typePage = `goods.${type}.page`;
+      const goods = this.data.goods;
+      //2.2.临时存储
+      goods[type].list.push(...list);
+      goods[type].page += 1;
+  
       this.setData({
-        typeKey: oldList,
-        typePage: page
+        goods: goods
       })
     })
   },
 
-
   //事件监听相关
-  handleTabClick (event) {
+  handleTabClick(event) {
     const index = event.detail.index;
-    console.log(index)
+    this.setData({
+      currentType: this.data.goodsTypes[index]
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onReachBottom () {
+    // 上拉加载更多
+    this._getGoodsData(this.data.currentType)
   }
+  
 })
