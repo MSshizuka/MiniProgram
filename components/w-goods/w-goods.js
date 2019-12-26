@@ -21,6 +21,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    imgClick (event) {
+      console.log(event);
+      this.triggerEvent('imgClick', {url:event.detail.url, id:event.detail.id})
+    }
   }
 })

@@ -1,15 +1,20 @@
 <!--pages/home/home.wxml-->
+<!-- 7.tab-control吸顶效果 -->
+<w-tab-control tab_titles="{{tab_titles}}"
+               bind:tab_click="handleTabClick"
+               class="isTabShow"
+               wx:if="{{isFixed}}"/>
 <!-- 1.展示轮播图 -->
-<w-swiper list="{{banners}}"/>
+<w-swiper list="{{banners}}" bind:bannerImgLoad="bannerImgLoad"/>
 <!-- 2.展示推荐图 -->
-<w-recommend recommends="{{recommends}}"/>
+<w-recommend recommends="{{recommends}}" bind:recommendImgLoad="rcmImgLoad"/>
 <!-- 3.展示本周流行 -->
 <w-popular/>
 <!-- 4.展示tab-control -->
 <w-tab-control tab_titles="{{tab_titles}}"
-               bind:tab_click="handleTabClick"/>
+               bind:tab_click="handleTabClick"
+               id="tab-control"/>
 <!-- 5.展示商品数据 -->
-<w-goods goods="{{goods[currentType].list}}"/>
-
-
- 
+<w-goods goods="{{goods[currentType].list}}" bind:imgClick="imgClick" data-url=""/>
+<!-- 6.回到顶部 -->
+<w-back-top bind:tap="back_click" wx:if="{{isShow}}"/>

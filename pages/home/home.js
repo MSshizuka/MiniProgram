@@ -1,5 +1,7 @@
 // pages/home/home.js
 import { getMultiData, getGoodsData} from '../../server/home.js'
+
+const back_distance = 1000;
 Page({
 
   /**
@@ -15,7 +17,11 @@ Page({
       'sell': {page: 1, list: []}
     },
     currentType: 'pop',
-    goodsTypes: ['pop','new','sell']
+    goodsTypes: ['pop','new','sell'],
+    isShow: false,
+    isFixed: false,
+    imgLoad: [],
+    tabFixed: null
   },
 
   /**
@@ -78,6 +84,59 @@ Page({
   onReachBottom () {
     // 上拉加载更多
     this._getGoodsData(this.data.currentType)
+  },
+
+  back_click () {
+    wx.pageScrollTo({
+      scrollTop: 0,
+    })
+  },
+
+  onPageScroll(options) {
+    this.setData({
+      isShow: options.scrollTop >= back_distance,
+      isFixed: options.scrollTop > this.data.tabFixed - 5
+    })
+  },
+
+  rcmImgLoad () {
+    this.data.imgLoad[0] = 'recommend'
+    this.handleTabControl()
+  },
+
+  bannerImgLoad () {
+    this.data.imgLoad[1] = 'banner'
+    this.handleTabControl()
+  },
+
+  handleTabControl() {
+    var flag = this.data.imgLoad.join() === "recommend,banner";
+    if(flag) {
+      wx.createSelectorQuery().select('#tab-control').boundingClientRect(rect => {
+        // console.log(rect.top)
+        this.data.tabFixed = rect.top
+      }).exec()     
+    }
+  },
+
+  imgClick (event) {
+    console.log(event.detail);
+    var url = event.detail.url;
+    var id = event.detail.id;
+    var urlArr = [];
+
+    var data = this.data.goods[this.data.currentType].list;
+
+    for(var i in data) {
+      urlArr.push(data[i].show.img)
+    }
+    
+    console.log(url)
+    console.log(urlArr)
+
+    wx.previewImage({
+      current: url,
+      urls: urlArr,
+    })
   }
-  
 })

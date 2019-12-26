@@ -1,7 +1,10 @@
 /* pages/home/home.wxss */
-
-
-
+.isTabShow {
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background: #fff;
+}
 
 
 

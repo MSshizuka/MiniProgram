@@ -7,6 +7,10 @@ Component({
     item: {
       type: Object,
       value: {}
+    },
+    index: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -21,6 +25,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    clickImg (event) {
+      // console.log(event);
+      this.triggerEvent('imgClick', { url: event.currentTarget.dataset.url, id: event.currentTarget.dataset.id})
+    }
   }
 })

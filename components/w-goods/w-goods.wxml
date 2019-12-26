@@ -1,6 +1,6 @@
 <!--components/w-goods/w-goods.wxml-->
 <view class="goods">
   <block wx:for="{{goods}}">
-    <w-goods-item item="{{item}}" class="goods-item"/>
+    <w-goods-item item="{{item}}" class="goods-item" bind:imgClick="imgClick" index="{{index}}"/>
   </block>
 </view>
